@@ -1,0 +1,94 @@
+/* CSS 초기화 */
+* {
+  box-sizing: border-box;
+}
+
+/* HTML, Body 초기화 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Root 앱 컨테이너 설정 */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 컬러 팔레트 CSS 변수 정의 */
+:root {
+  /* Primary Colors - 라일락 퍼플 계열 */
+  --color-primary: #9B7BB8;
+  --color-primary-light: #C4A8D8;
+  --color-primary-dark: #7B5BA0;
+
+  /* Secondary Colors - 스트로베리 & 액센트 */
+  --color-secondary: #E84B5B;
+  --color-secondary-light: #F8A5A5;
+  --color-secondary-dark: #D43F4F;
+  --color-accent: #8B6914;
+  --color-accent-light: #B8923A;
+  --color-accent-dark: #6B4E12;
+
+  /* Background Colors - 봄 핑크 계열 */
+  --color-bg-primary: #FDF0F0;
+  --color-bg-secondary: #FCE4E8;
+  --color-bg-tertiary: #FFF5F5;
+  --color-bg-card: #FFFFFF;
+  --color-bg-overlay: rgba(253, 240, 240, 0.95);
+
+  /* Text Colors */
+  --color-text-primary: #2D2D2D;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted: #9B9B9B;
+  --color-text-heading: #8B2332;
+  --color-text-inverse: #FFFFFF;
+
+  /* Interactive Colors - 버튼, 링크 */
+  --color-button-primary: #9B7BB8;
+  --color-button-primary-hover: #7B5BA0;
+  --color-button-secondary: #E84B5B;
+  --color-button-secondary-hover: #D43F4F;
+  --color-link: #8B2332;
+  --color-link-hover: #6B1322;
+
+  /* Decorative Colors - 장식 요소 */
+  --color-cherry-blossom: #F5C6D0;
+  --color-petal: #FADCE3;
+  --color-cream: #F5E6D3;
+
+  /* Border & Shadow */
+  --color-border: #F0E0E0;
+  --color-border-light: #FAF0F0;
+  --color-shadow: rgba(155, 123, 184, 0.15);
+  --color-shadow-hover: rgba(155, 123, 184, 0.25);
+
+  /* 폰트 설정 */
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
