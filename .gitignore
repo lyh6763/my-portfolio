@@ -26,3 +26,6 @@ Thumbs.db
 # Temporary files
 *.log
 nul
+
+# MCP configuration
+.mcp.json
