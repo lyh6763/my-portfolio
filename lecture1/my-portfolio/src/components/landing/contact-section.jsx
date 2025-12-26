@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import GuestbookForm from './guestbook-form';
+import GuestbookList from './guestbook-list';
 
 /**
  * ContactSection 컴포넌트
@@ -14,6 +15,12 @@ import CardContent from '@mui/material/CardContent';
  * <ContactSection />
  */
 function ContactSection() {
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const handleSubmitSuccess = () => {
+    setRefreshKey((prev) => prev + 1);
+  };
+
   return (
     <Box
       sx={{
@@ -22,37 +29,20 @@ function ContactSection() {
       }}
     >
       <Container maxWidth="md">
-        <Card
+        <Typography
+          variant="h4"
+          component="h2"
           sx={{
-            backgroundColor: 'background.paper',
-            border: '1px solid',
-            borderColor: 'divider',
+            mb: 4,
+            textAlign: 'center',
+            fontSize: { xs: '1.5rem', md: '2rem' },
           }}
         >
-          <CardContent sx={{ p: { xs: 3, md: 5 } }}>
-            <Typography
-              variant="h4"
-              component="h2"
-              sx={{
-                mb: 3,
-                textAlign: 'center',
-                fontSize: { xs: '1.5rem', md: '2rem' },
-              }}
-            >
-              Contact
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                color: 'text.secondary',
-                textAlign: 'center',
-                lineHeight: 1.8,
-              }}
-            >
-              여기는 Contact 섹션입니다. 연락처, SNS, 간단한 메시지 폼이 들어갈 예정입니다.
-            </Typography>
-          </CardContent>
-        </Card>
+          Contact & Guestbook
+        </Typography>
+
+        <GuestbookForm onSubmitSuccess={handleSubmitSuccess} />
+        <GuestbookList refreshKey={refreshKey} />
       </Container>
     </Box>
   );

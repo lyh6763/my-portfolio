@@ -29,3 +29,9 @@ nul
 
 # MCP configuration
 .mcp.json
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Duplicate portfolio folder (separate git repo)
+my-portfolio/
