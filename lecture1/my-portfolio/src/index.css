@@ -1,6 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* shadcn 기본 컬러 - Light 테마 */
+
+  /* Background */
+  --color-background: hsl(0, 0%, 0%);
+  --color-background-secondary: hsl(0, 0%, 10%);
+  --color-background-tertiary: hsl(0, 0%, 5%);
+
+  /* Foreground */
+  --color-foreground: hsl(240, 10%, 3.9%);
+
+  /* Card */
+  --color-card: hsl(0, 0%, 100%);
+  --color-card-foreground: hsl(240, 10%, 3.9%);
+
+  /* Popover */
+  --color-popover: hsl(0, 0%, 100%);
+  --color-popover-foreground: hsl(240, 10%, 3.9%);
+
+  /* Primary - 검정 계열 */
+  --color-primary: hsl(240, 5.9%, 10%);
+  --color-primary-light: hsl(240, 5%, 26%);
+  --color-primary-dark: hsl(240, 6%, 6%);
+  --color-primary-foreground: hsl(0, 0%, 98%);
+
+  /* Secondary - 밝은 회색 */
+  --color-secondary: hsl(240, 4.8%, 95.9%);
+  --color-secondary-light: hsl(240, 5%, 98%);
+  --color-secondary-dark: hsl(240, 5%, 84%);
+  --color-secondary-foreground: hsl(240, 5.9%, 10%);
+
+  /* Muted */
+  --color-muted: hsl(0, 0%, 40%);
+  --color-muted-foreground: hsl(0, 0%, 40%);
+
+  /* Accent */
+  --color-accent: hsl(240, 4.8%, 95.9%);
+  --color-accent-light: hsl(240, 5%, 98%);
+  --color-accent-dark: hsl(240, 5%, 84%);
+  --color-accent-foreground: hsl(240, 5.9%, 10%);
+
+  /* Heading */
+  --color-heading: hsl(240, 10%, 3.9%);
+
+  /* Destructive */
+  --color-destructive: hsl(0, 84.2%, 60.2%);
+  --color-destructive-foreground: hsl(0, 0%, 98%);
+
+  /* Border & Ring */
+  --color-border: hsl(240, 5.9%, 90%);
+  --color-input: hsl(240, 5.9%, 90%);
+  --color-ring: hsl(240, 5.9%, 10%);
+
+  /* Chart colors */
+  --color-chart-1: hsl(12, 76%, 61%);
+  --color-chart-2: hsl(173, 58%, 39%);
+  --color-chart-3: hsl(197, 37%, 24%);
+  --color-chart-4: hsl(43, 74%, 66%);
+  --color-chart-5: hsl(27, 87%, 67%);
+
+  /* Shadow values */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-hover: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
 /* CSS 초기화 */
 * {
   box-sizing: border-box;
+  border-color: var(--color-border);
 }
 
 /* HTML, Body 초기화 */
@@ -19,76 +95,126 @@ html, body {
   flex-direction: column;
 }
 
-/* 컬러 팔레트 CSS 변수 정의 */
-:root {
-  /* Primary Colors - 라일락 퍼플 계열 */
-  --color-primary: #9B7BB8;
-  --color-primary-light: #C4A8D8;
-  --color-primary-dark: #7B5BA0;
-
-  /* Secondary Colors - 스트로베리 & 액센트 */
-  --color-secondary: #E84B5B;
-  --color-secondary-light: #F8A5A5;
-  --color-secondary-dark: #D43F4F;
-  --color-accent: #8B6914;
-  --color-accent-light: #B8923A;
-  --color-accent-dark: #6B4E12;
-
-  /* Background Colors - 봄 핑크 계열 */
-  --color-bg-primary: #FDF0F0;
-  --color-bg-secondary: #FCE4E8;
-  --color-bg-tertiary: #FFF5F5;
-  --color-bg-card: #FFFFFF;
-  --color-bg-overlay: rgba(253, 240, 240, 0.95);
-
-  /* Text Colors */
-  --color-text-primary: #2D2D2D;
-  --color-text-secondary: #6B6B6B;
-  --color-text-muted: #9B9B9B;
-  --color-text-heading: #8B2332;
-  --color-text-inverse: #FFFFFF;
-
-  /* Interactive Colors - 버튼, 링크 */
-  --color-button-primary: #9B7BB8;
-  --color-button-primary-hover: #7B5BA0;
-  --color-button-secondary: #E84B5B;
-  --color-button-secondary-hover: #D43F4F;
-  --color-link: #8B2332;
-  --color-link-hover: #6B1322;
-
-  /* Decorative Colors - 장식 요소 */
-  --color-cherry-blossom: #F5C6D0;
-  --color-petal: #FADCE3;
-  --color-cream: #F5E6D3;
-
-  /* Border & Shadow */
-  --color-border: #F0E0E0;
-  --color-border-light: #FAF0F0;
-  --color-shadow: rgba(155, 123, 184, 0.15);
-  --color-shadow-hover: rgba(155, 123, 184, 0.25);
-
-  /* 폰트 설정 */
+body {
+  background-color: transparent;
+  color: var(--color-foreground);
   font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-}
-
 a {
   font-weight: 500;
-  color: var(--color-link);
+  color: var(--color-foreground);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-link-hover);
+  color: var(--color-primary);
+}
+
+/* Tailwind animation keyframes */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slide-in-from-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-out-to-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes slide-in-from-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-out-to-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes slide-in-from-top {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slide-out-to-top {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slide-out-to-bottom {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+/* Animation classes for Radix */
+.animate-in {
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+.animate-out {
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-0 {
+  animation-name: fade-in;
+}
+
+.fade-out-0 {
+  animation-name: fade-out;
+}
+
+.slide-in-from-right {
+  animation-name: slide-in-from-right;
+}
+
+.slide-out-to-right {
+  animation-name: slide-out-to-right;
+}
+
+.slide-in-from-left {
+  animation-name: slide-in-from-left;
+}
+
+.slide-out-to-left {
+  animation-name: slide-out-to-left;
+}
+
+.slide-in-from-top {
+  animation-name: slide-in-from-top;
+}
+
+.slide-out-to-top {
+  animation-name: slide-out-to-top;
+}
+
+.slide-in-from-bottom {
+  animation-name: slide-in-from-bottom;
+}
+
+.slide-out-to-bottom {
+  animation-name: slide-out-to-bottom;
 }
